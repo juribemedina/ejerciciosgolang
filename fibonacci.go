@@ -1,14 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"math/big"
 	"time"
 )
 
 func main() {
+	var n int
+	flag.IntVar(&n, "n", 2000000, "Numero Fibonacci a calcular")
+	flag.Parse()
+
 	start := time.Now()
-	result := fib(2000000)
+	result := fib(n)
 	elapsed := time.Since(start)
 	fmt.Println(result)
 	fmt.Println("El cálculo tomó", elapsed)
